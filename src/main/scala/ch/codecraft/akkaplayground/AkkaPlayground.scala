@@ -1,7 +1,7 @@
 package ch.codecraft.akkaplayground
 
 import akka.actor.Actor.Receive
-import akka.actor.{ActorRef, ActorSystem, Props, Actor, Inbox}
+import akka.actor._
 import scala.concurrent.duration._
 
 /**
@@ -29,4 +29,10 @@ class Greeter extends Actor {
     case Greeting => sender ! Greeting(greeting)
   }
 
+}
+
+class GreetPrinter extends Actor {
+  override def receive: Actor.Receive = {
+    case Greeting(message) => println(message)
+  }
 }
