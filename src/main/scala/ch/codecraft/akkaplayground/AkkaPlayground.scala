@@ -1,6 +1,6 @@
 package ch.codecraft.akkaplayground
 
-import akka.actor.{ ActorRef, ActorSystem, Props, Actor, Inbox }
+import akka.actor.{ActorRef, ActorSystem, Props, Actor, Inbox}
 import scala.concurrent.duration._
 
 /**
@@ -20,7 +20,7 @@ class Greeter extends Actor {
 
   override def receive: Receive = {
     case WhoToGreet(who) => greeting = s"Hello, $who"
-    case Greeting => sender ! Greeting(greeting)
+    case Greet => sender ! Greeting(greeting)
   }
 
 }
